@@ -1,12 +1,17 @@
 const initialState = {
-    city: "Mathura",
-    search : "MATHURA"
-}
+  search: "MATHURA",
+  city: {},
+};
 
 export const setCity = (state = initialState, action) => {
-    switch(action.type){
-        case "CITY" : return Object.assign({}, state, {city: action.payload.city});
-        case "SEARCH" : return Object.assign({}, state, {search: action.payload.search});
-        default: return action;
-    }
-}
+  switch (action.type) {
+    case "SEARCH":
+      return Object.assign({}, state, { search: action.payload.search });
+    case "Fetch_Weather":
+      return Object.assign({}, state, {
+        city: action.payload,
+      });
+    default:
+      return action;
+  }
+};
